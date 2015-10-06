@@ -1,6 +1,4 @@
-<?php
-if(!session_id()) session_start();
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -47,13 +45,7 @@ if(!session_id()) session_start();
 
 <div data-role="header" data-position="fixed" data-theme="a">
 
-
-
-
-<div class="box1 center1 boxblue" >
 <a href="dashboard.html" rel="external"><img src="pics/appbanner-320x60-home1.png" width="320" height="61" class="center" ></a>
-</div>
-
 
 
 </div><!-- /header -->
@@ -76,7 +68,14 @@ if(!session_id()) session_start();
 
 
 
-<p>Welcome  <strong><?php echo $_SESSION['now_co']; ?> </strong> as a new member driver to the:
+<p>Welcome  <strong>
+
+
+
+nammmmm <?php echo $_SESSION['now_co']; ?> 
+
+
+</strong> as a new member driver to the:
 
 
 <div align="center">
@@ -217,13 +216,69 @@ An accident is an event where ...
 if your contractor suggests receives information that you may be under the effects of drugs or alcohol</p>
 </p>
 
+<br>
+clean this up
+<br>
 
+cl
+<span id="Client_ID"></span><br>
+
+<span id="Company"></span>
+
+
+
+<br>
+<br>
+message <span id="mes_result"></span><br>
+
+
+<br> yo if already agree then check form<br>
+agree <span id="cl_emp_web_agree"></span><br>
+<br>
+dun <span id="done1"></span>
+<br>
+
+
+
+
+<p id="fun">gooober</p>
+
+
+
+<script>
+
+//var fun = "yes";
+
+
+if (localStorage.getItem("cl_emp_web_agree") == 1) {
+	
+	
+	document.getElementById("fun").innerHTML = "You already agreed to the terms";
+	
+	}
+ else {
+        //greeting = "not fun time";
+		document.getElementById("fun").innerHTML = "You have NOT YET agreed to the terms";
+    }
+</script>
+
+
+
+
+
+
+<br>
 
 
 <br>
 Agree to the terms:<br>
 
-<form action="drug-education2.html" method="post" rel="external">
+
+drug-education2.html yo<br>
+
+<form action="" method="get" rel="external" name="nowform" id="nowform">
+
+
 
 
 <div data-role="fieldcontain">
@@ -242,7 +297,15 @@ Agree to the terms:<br>
 </tr>
 </table>
 
-<input name="sub" type="submit" value="AGREE">
+<!--<input name="sub" type="submit" value="AGREE" onClick="testResults(this.form)"> this no work -->
+
+
+
+<input type="button" class="buttonform2_24" name="submit" value= " - AGREE - " onClick="testResults(this.form)" />
+
+
+
+<input type="hidden" name="trylogin" value= "true" >
 </fieldset>
 </div>
 
@@ -259,6 +322,85 @@ By clicking  the blue line above, you agree to comply with the IDC Drug and Alco
 </div><!-- end .left -->
 
 
+
+<SCRIPT LANGUAGE="JavaScript">
+function testResults (form) {
+    
+	
+	var Client_ID  = localStorage.getItem("Client_ID")
+	var webpass = 22;
+	
+	var agree  = form.agree.value
+	
+	
+   
+   
+   //alert ("You typed: " + Client_ID );
+	
+	
+		
+		$.get("http://filemakerbro.com/idc-data/drug-ed-up.php?Client_ID="+Client_ID+"&agree="+"1", function(data, status){
+	
+	
+console.log ('data', data);
+output = "";
+
+$.each(data, function(key, value) {
+console. log ('item', key, value);
+
+
+
+localStorage.setItem("cl_emp_web_agree", value.cl_emp_web_agree);
+
+
+localStorage.setItem("done1", value.done1);
+localStorage.setItem("mes_result", value.mes_result);
+
+
+
+document.getElementById('mes_result').textContent = localStorage.getItem("mes_result");
+
+//
+document.getElementById('cl_emp_web_agree').textContent = localStorage.getItem("cl_emp_web_agree");
+
+
+document.getElementById('done1').textContent = localStorage.getItem("done1");
+			
+});       
+            
+		
+//window.location.replace("drug-education2.html");			
+			
+        });
+		
+
+	
+}
+</SCRIPT>
+
+
+<script>
+
+
+// doc here for pre
+
+document.getElementById('mes_result').textContent = '--';
+
+//document.getElementById('cl_emp_web_agree').textContent = '--';
+
+
+document.getElementById('cl_emp_web_agree').textContent = localStorage.getItem("cl_emp_web_agree");
+
+
+document.getElementById('done1').textContent = '--';
+
+document.getElementById('Client_ID').textContent = localStorage.getItem("Client_ID");
+document.getElementById('Company').textContent = localStorage.getItem("Company");	
+
+</script>
+
+
+
 <!--INSERT END -->
 
 </div><!-- end .box -->
@@ -269,7 +411,7 @@ By clicking  the blue line above, you agree to comply with the IDC Drug and Alco
 <!--
 <footer data-role="footer" class="ui-barNAH" data-position="fixed" data-theme="a">
 <div class="ui-grid-c boxblue">
-<?php include('footer-inc.php'); ?>
+foot
 </div>
 </footer> -->
 

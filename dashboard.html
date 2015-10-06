@@ -436,7 +436,7 @@ tmp <?php // echo $_SESSION['yotest']; ?>
 <br>
 
 
-<a class="ui-btn  ui-btn-b tsize1" href="index.html" rel="external">index tmp</a>
+<a class="ui-btn  ui-btn-b tsize1" href="index-tmp.html" rel="external">index tmp</a>
 
 <br>
 
@@ -454,21 +454,27 @@ tmp
 // end MS REPORT FOR CERT ?>
 
 
-<a class="ui-btn  ui-btn-b tsize1" href="test-results.php" rel="external">Last Drug<br>
+<a class="ui-btn  ui-btn-b tsize1" href="test-results.html" rel="external">Last Drug<br>
 Test Results</a>
 
-<?php if ( $_SESSION['colltype'] == 1 ) {
+<?php // if ( $_SESSION['colltype'] == 1 ) {
 	$coloc = 'collection-sites.php';
 		}else{
 		$coloc = 'collection-sites2.php';
 		}
 ?>
-
+<!--
 <a class="ui-btn ui-btn-a tsize1" href="<?php echo $coloc; ?>?zip=<?php echo $shortzip; ?>" rel="external">Drug And Alcohol Testing<br>
 Collection Sites</a>
+ -->
+ 
+ 
 
+<a class="ui-btn ui-btn-a tsize1" href="collection-sites1.html" rel="external">Drug And Alcohol Testing<br>
+Collection Sites (1fix2)</a>
+ 
 
-<a class="ui-btn  ui-btn-b tsize1" href="contractor-contact-info.php" rel="external">Contractor To Receive<br>
+<a class="ui-btn  ui-btn-b tsize1" href="contractor-contact-info.html" rel="external">Contractor To Receive<br>
 Test Results</a>
 
 <a href="drug-education.html" class="ui-btn  ui-btn-a tsize1" rel="external">IDC Drug-Alcohol<br>
@@ -479,15 +485,15 @@ Program Rules</a>
 <a  href="client-contact-info.html" class="ui-btn  ui-btn-b tsize1" rel="external">My Contact Info</a>
 
 
-<a  href="client-testing.php" class="ui-btn ui-btn-a tsize1" rel="external">Collector Notice</a>
+<a  href="client-testing.html" class="ui-btn ui-btn-a tsize1" rel="external">Collector Notice</a>
 
 
 
-<a href="invoices-list.php" class="ui-btn ui-btn-b tsize1" rel="external">Make A Payment</a>
+<a href="invoices-list.html" class="ui-btn ui-btn-b tsize1" rel="external">Make A Payment</a>
 
 
 
-<a href="accident-definition.php" class="ui-btn ui-btn-a tsize1" rel="external">Motor Carrier<br>
+<a href="accident-definition.html" class="ui-btn ui-btn-a tsize1" rel="external">Motor Carrier<br>
 Definition Of Accident</a>
 
 
